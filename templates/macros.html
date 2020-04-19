@@ -1,0 +1,27 @@
+{% macro render_dict(dictionary) %}
+    <table>
+        <tr>
+            <th>name</th>
+            <th>values</th>
+            <th>comments</th>
+        </tr>
+
+
+        <!-- this macro takes a Python dict object and displays it in Table form in HTML -->
+
+
+        {% for key, val in dictionary.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ val }}</td>
+            {% if val <= 2 %}
+            <td style="color:green"><strong>short</strong></td>
+            {% elif val >= 2 and val <= 3 %}
+            <td style="color:goldenrod"><strong>medium</strong></td>
+            {% else %}
+            <td style="color: red"><strong>long</strong></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endmacro %}
